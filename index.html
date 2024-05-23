@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="page">
+
+        <div class="logo">
+
+            <h1>SPLI</h1>
+            <h1>TTER</h1>
+
+        </div>
+        
+        <div class="conteiner">
+
+            <div class="input-conteiner">
+
+                <div style="display: grid; gap: 8px;">
+
+                    <h3>Bill</h3>
+                    <input type="number" name="bill" id="bill" class="inputs input-cifrao">
+
+                </div>
+
+                <div style="display: grid; gap: 8px;">
+
+                    <h3>Select Tip %</h3>
+
+                    <div class="escolhas" >
+                        <div class="item" onclick="selectip(0.05)">5%</div>
+                        <div class="item" onclick="selectip(0.10)">10%</div>
+                        <div class="item" onclick="selectip(0.15)">15%</div>
+                        <div class="item" onclick="selectip(0.25)">25%</div>
+                        <div class="item" onclick="selectip(0.50)">50%</div>
+                        <input type="number" class="custom" placeholder="Custom" oninput="selectip(this.value/100)"></input>
+                    </div>
+                </div>
+
+                <div style="display: grid; gap: 8px;">
+
+                    <h3>Number of people</h3>
+                    <input type="number" name="people" id="people" class="inputs input-pessoas">
+
+                </div>
+
+            </div>
+
+            <div class="resultado">
+
+                <div class="tips">
+
+                    <div class="amount">
+                        <div>
+                            <h3>Tip Amount</h3>
+                            <p>/ person</p>
+                        </div>
+
+                        <div class="res">
+                            <h2>$</h2>
+                            <h2 id="amount">0.00</h2>
+                        </div>
+
+                    </div>
+
+                    <div class="total">
+                        <div>
+                            <h3>Total</h3>
+                            <p>/ person</p>
+                        </div>
+                        <div class="res">
+                            <h2>$</h2>
+                            <h2 id="total" value="">0.00</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="reset" onclick="calculo()">RESET</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var tip = 0;
+
+        function selectip(valor){
+
+            console.log(tip);
+            tip = valor;
+
+        }
+
+        function calculo(){
+
+            var bill = window.document.getElementById("bill").value;
+            var people = window.document.getElementById("people").value;
+
+            console.log(bill);
+            console.log(people);
+            var tipAmount = bill * tip;
+            var Total = Number(bill) + tipAmount;
+            var pessoas = Total/people;
+            console.log(Total);
+            console.log(pessoas);
+            document.getElementById("amount").innerHTML = (tipAmount/people).toFixed(2);
+            document.getElementById("total").innerHTML = (pessoas).toFixed(2);
+        }
+
+    </script>
+
+</body>
+</html>
