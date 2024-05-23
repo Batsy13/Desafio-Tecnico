@@ -98,7 +98,6 @@
 
         function selectip(valor){
 
-            console.log(tip);
             tip = valor;
 
         }
@@ -107,14 +106,13 @@
 
             var bill = window.document.getElementById("bill").value;
             var people = window.document.getElementById("people").value;
+            if(people == 0){
+                people = 1;
+            }
 
-            console.log(bill);
-            console.log(people);
             var tipAmount = bill * tip;
             var Total = Number(bill) + tipAmount;
             var pessoas = Total/people;
-            console.log(Total);
-            console.log(pessoas);
             document.getElementById("amount").innerHTML = (tipAmount/people).toFixed(2);
             document.getElementById("total").innerHTML = (pessoas).toFixed(2);
         }
